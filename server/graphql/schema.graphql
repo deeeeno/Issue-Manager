@@ -30,8 +30,8 @@ type Query{
     commentByIssueSeq(issueseq:Int!):[Comment]!
 }
 
-type Mutation{
-    createUser(id:String! password:String! nickName:String!): Int!
-    createIssue(id:String! title:String! desc:String reporterseq:Int! asigneeseq:Int): Int! 
-    createComment(issueId:String! commenterseq:Int! index:Int!):Int!
-}
+#type Mutation{
+#    createUser(id:String! password:String! nickName:String!): Int!
+#    createIssue(id:String! title:String! desc:String reporterseq:Int! asigneeseq:Int): Int! 
+#    createComment(issueId:String! commenterseq:Int! index:Int!):Int!
+#}

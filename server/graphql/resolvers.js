@@ -1,8 +1,12 @@
-
+import {userById,userBySeq} from '../data/users';
+import {issueById,issueByUserSeq} from '../data/issues';
+import {commentByIssueSeq} from '../data/comments';
 export const resolvers = {
     Query:{
-        movies:(_,{limit,rate})=>getMovies(limit,rate),
-        movie:(_,{id})=>getMovieById(id),
-        suggestions:(_,{id})=>getSuggestionsById(id),
+        userById: (_,{id}) => userById(id),
+        userBySeq: (_,{seq}) => userBySeq(seq),
+        issueById: (_,{id}) => issueById(id),
+        issueByUserSeq: (_,{seq}) => issueByUserSeq(seq),
+        commentByIssueSeq: (_,{iseq}) => commentByIssueSeq(iseq),
     },
 }
