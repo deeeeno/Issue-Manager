@@ -6,8 +6,8 @@ app.use(express.urlencoded({extended:false}));
 const {schema} = require('./graphql/schema');
 const {rootValue} = require('./graphql/resolvers');
 const {graphqlHTTP} = require('express-graphql');
-
-app.use('/graphql',graphqlHTTP({schema,rootValue,graphiql:true}));
+const context = {'a':1}
+app.use('/graphql',graphqlHTTP({schema,rootValue,context,graphiql:true}));
 //////
 
 const PORT = 5000;

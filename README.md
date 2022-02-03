@@ -32,9 +32,3 @@ Comment{
 
 ```
 
-### GraphQL 설계
-* [스키마 파일](server/graphql/schema.graphql)   
-* [resolver](server/graphql/resolvers.js)
-* frontend에서 graphQL 요청   
-쿼리 혹은 뮤테이션에 대해 1:1로 쿼리문을 생성하는 함수 작성. 크게 쿼리, 뮤테이션 요청을 보내는 함수 사용   
-[코드](client/src/graphql/request.js)

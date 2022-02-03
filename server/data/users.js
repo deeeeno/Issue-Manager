@@ -7,7 +7,8 @@ const users = [
 ]
 
 
-export const userById = (id)=>{
+export const userById = (id,context)=>{
+    console.log(context);
     return users.filter((user)=>user['id'] === id)[0];
 }
 export const userBySeq = (seq)=>{
