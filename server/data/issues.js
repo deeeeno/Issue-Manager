@@ -1,5 +1,5 @@
 const issues = [
-    {seq:1,id:'TEST-01',reporter_seq:1,asignee_seq:3,satus:'in progress', priority:'middle', title:'테스트이슈', description:'이건 테스트다 알겠니?'}
+    {seq:1,id:'TEST-01',reporter_seq:1,asignee_seq:3,status:'in progress', priority:3, title:'테스트이슈', description:'이건 테스트다 알겠니?'}
 ]
 
 export const issueById = (id)=>{
@@ -7,5 +7,5 @@ export const issueById = (id)=>{
 }
 
 export const issueByUserSeq = (userseq)=>{
-    return issues.filter((issue)=>issue['reporter_seq'] === userseq)[0];
+    return issues.filter((issue)=>issue['reporter_seq'] === userseq);
 }

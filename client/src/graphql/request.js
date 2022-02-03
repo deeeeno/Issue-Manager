@@ -6,6 +6,7 @@ export const requestQuery = async function(...querys){
     const query = `{
         ${querys.join('\n')}
     }` 
+    console.log(query);
     const res = await fetch(URL,
         {
             method:'POST',

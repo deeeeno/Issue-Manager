@@ -1,15 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-import {requestQuery} from './graphql/request';
-import {userById} from './graphql/query';
-requestQuery(userById('dino','id','password','nickName')).then(data=>console.log(data));
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+import Login from './router/Login'
+import List from './router/List'
 function App() {
-
-  return (
-    <div>
-      
-    </div>
-  );
+  return <Router>
+      <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="/list" element={<List/>}/>
+      </Routes>
+    </Router>;
 }
 
 export default App;

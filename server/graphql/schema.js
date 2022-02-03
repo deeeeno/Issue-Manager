@@ -29,7 +29,7 @@ type Query{
     userById(id:String!):User
     userBySeq(seq:Int!):User!
     issueById(id:Int!):Issue!
-    issueByUserSeq(userseq:Int!):[Issue]!
-    commentByIssueSeq(issueseq:Int!):[Comment]!
+    issueByUserSeq(userseq:Int!):[Issue]
+    commentByIssueSeq(issueseq:Int!):[Comment]
 }
 `);
