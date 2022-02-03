@@ -1,6 +1,6 @@
 import {User,Issue,Comment} from '../data/structure';
 
-const URL = 'http://localhost:4000';
+const URL = '/graphql';
 
 export const requestQuery = async function(...querys){
     const query = `{
