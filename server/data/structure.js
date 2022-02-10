@@ -1,11 +1,13 @@
-export const User = function(id,nickName,password,seq){
+export const User = function(seq,id,nickName,password){
+    this.seq=seq;
     this.id=id;
     this.nickName=nickName;
     this.password=password;
-    this.seq=seq;
+    
 }
 
-export const Issue = function(id,reporter_seq,asignee_seq,status,priority,title,description){
+export const Issue = function(seq,id,reporter_seq,asignee_seq,status,priority,title,description){
+    this.seq = seq;
     this.id = id;
     this.reporter_seq = reporter_seq;
     this.asignee_seq = asignee_seq;

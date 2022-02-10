@@ -2,19 +2,20 @@ import {User,Issue,Comment} from '../data/structure';
 
 const URL = '/graphql';
 
-export const requestQuery = async function(...querys){
+export const requestQuery = function(...querys){
     const query = `{
         ${querys.join('\n')}
     }` 
-    console.log(query);
-    const res = await fetch(URL,
-        {
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({query})
-        });
-    const json = await res.json();
-    return json['data'];
+    return new Promise(async (resolve,reject)=>{
+        const res = await fetch(URL,
+            {
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body:JSON.stringify({query})
+            });
+        const json = await res.json();
+        resolve(json['data']);
+    })
 }
 
 export const requestMutation = async function(...mutations){

@@ -17,6 +17,15 @@ type Issue{
     title:String!
     description:String!
 }
+input IssueInput{
+    id:String!
+    reporter_seq:Int!
+    asignee_seq:Int!
+    status:String!
+    priority:Int!
+    title:String!
+    description:String!
+}
 
 type Comment{
     index:Int!
@@ -31,5 +40,8 @@ type Query{
     issueById(id:Int!):Issue!
     issueByUserSeq(userseq:Int!):[Issue]
     commentByIssueSeq(issueseq:Int!):[Comment]
+}
+type Mutation{
+    createIssue(issue:IssueInput!):Int
 }
 `);
