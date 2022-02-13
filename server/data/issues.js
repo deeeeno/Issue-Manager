@@ -1,6 +1,13 @@
 import {Issue} from './structure';
 const issues = [
-    {seq:1,id:'TEST-01',reporter_seq:1,asignee_seq:3,status:'in progress', priority:3, title:'테스트이슈', description:'이건 테스트다 알겠니?'}
+    {seq:1,id:'TEST-1',project_seq:1,reporter_seq:1,asignee_seq:3,status:'in progress', priority:3, title:'테스트이슈', description:'이건 테스트다 알겠니?', create_datetime:'202202131301'},
+    {seq:1,id:'TEST-2',project_seq:1,reporter_seq:1,asignee_seq:3,status:'in progress', priority:3, title:'테스트이슈', description:'이건 테스트다 알겠니?', create_datetime:'202202131302'},
+    {seq:1,id:'TEST-3',project_seq:1,reporter_seq:1,asignee_seq:3,status:'in progress', priority:3, title:'테스트이슈', description:'이건 테스트다 알겠니?', create_datetime:'202202131303'},
+    {seq:1,id:'TEST-4',project_seq:1,reporter_seq:1,asignee_seq:3,status:'in progress', priority:3, title:'테스트이슈', description:'이건 테스트다 알겠니?', create_datetime:'202202131304'},
+    {seq:1,id:'ABCD-1',project_seq:2,reporter_seq:1,asignee_seq:3,status:'in progress', priority:3, title:'테스트이슈', description:'이건 테스트다 알겠니?', create_datetime:'202202131305'},
+    {seq:1,id:'ABCD-2',project_seq:2,reporter_seq:1,asignee_seq:3,status:'in progress', priority:3, title:'테스트이슈', description:'이건 테스트다 알겠니?', create_datetime:'202202131306'},
+    {seq:1,id:'ABCD-3',project_seq:2,reporter_seq:1,asignee_seq:3,status:'in progress', priority:3, title:'테스트이슈', description:'이건 테스트다 알겠니?', create_datetime:'202202131307'},
+
 ]
 
 export const issueById = (id)=>{
