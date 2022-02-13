@@ -19,7 +19,6 @@ function List(){
         })
     },[]);
     const createIssue = ()=>{
-        console.log('hi');
         setPopupOpen(true);
     }
     const popupClose = ()=>{
