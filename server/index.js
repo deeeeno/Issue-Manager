@@ -1,14 +1,17 @@
-const express = require('express');
+import dotenv from "dotenv";
+import express from "express";
+
+dotenv.config();
 const app = express();
-app.use(express.json())
-app.use(express.urlencoded({extended:false}));
+const { PORT } = process.env;
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 /////Routers
-const {schema} = require('./graphql/schema');
-const {rootValue} = require('./graphql/resolvers');
-const {graphqlHTTP} = require('express-graphql');
-const context = {'a':1}
-app.use('/graphql',graphqlHTTP({schema,rootValue,context,graphiql:true}));
+import { schema } from "./graphql/schema";
+import { rootValue } from "./graphql/resolvers";
+import { graphqlHTTP } from "express-graphql";
+
+app.use("/graphql", graphqlHTTP({ schema, rootValue, graphiql: true }));
 //////
 
-const PORT = 5000;
-app.listen(PORT,()=> console.log(`OPEN PORT ${PORT}`));
+app.listen(PORT, () => console.log(`OPEN PORT ${PORT}`));

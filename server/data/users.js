@@ -1,52 +1,31 @@
-import { User } from "./structure";
-
-const users = [
-  {
-    seq: 1,
-    id: "dino",
-    nickName: "디노",
-    password: "12345",
-    create_datetime: "20220211131511",
-  },
-  {
-    seq: 2,
-    id: "bino",
-    nickName: "비노",
-    password: "12345",
-    create_datetime: "20220211131511",
-  },
-  {
-    seq: 3,
-    id: "cino",
-    nickName: "씨노",
-    password: "12345",
-    create_datetime: "20220211131511",
-  },
-  {
-    seq: 4,
-    id: "fino",
-    nickName: "픠노",
-    password: "12345",
-    create_datetime: "20220211131511",
-  },
-  {
-    seq: 5,
-    id: "gino",
-    nickName: "기노",
-    password: "12345",
-    create_datetime: "20220211131511",
-  },
-];
-
+import { User } from "./mongo";
+// const examData = new UserCollection();
+// console.log(examData);
+// examData.seq = 1;
+// examData.id = "dino";
+// examData.password = "12345";
+// examData.create_datetime = "20220211131511";
+// examData.save().then((newD) => {
+//   console.log(newD);
+// });
+const users = [];
 export const userById = (id) => {
-  return users.filter((user) => user["id"] === id)[0];
+  return new Promise((resolve) => {
+    User.find({ id: id }).then((ret) => {
+      resolve(ret);
+    });
+  });
 };
-export const userBySeq = (seq) => {
-  return users.filter((user) => user["seq"] === seq)[0];
+export const userBySeq = async (seq) => {
+  return new Promise((resolve) => {
+    User.find({ seq: seq }).then((ret) => {
+      resolve(ret);
+    });
+  });
 };
 export const createUser = ({ id, password, nickName }) => {
-  const newUser = new User(users.length + 1, id, nickName, password);
-  users.push(newUser);
+  //const newUser = new User(users.length + 1, id, nickName, password);
+  users.push({ id: 1 });
   return users.length;
 };
 export const updateUser = ({ seq, id, password, nickName }) => {

@@ -28,8 +28,8 @@ import {
   deleteComment,
 } from "../data/comments";
 export const rootValue = {
-  userById: ({ id }) => userById(id),
-  userBySeq: ({ seq }) => userBySeq(seq),
+  userById: async ({ id }) => (await userById(id))[0],
+  userBySeq: async ({ seq }) => (await userBySeq(seq))[0],
   issuesByAsigneeSeq: ({ asignee_seq }) => issuesByAsigneeSeq(asignee_seq),
   issuesByReporterSeq: ({ reporter_seq }) => issuesByReporterSeq(reporter_seq),
   issuesByProjectSeq: ({ project_seq }) => issuesByProjectSeq(project_seq),
