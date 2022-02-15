@@ -1,5 +1,4 @@
-const {buildSchema} = require('graphql');
-
+import { buildSchema } from "graphql";
 export const schema = buildSchema(`
 type User{
     seq:Int!
@@ -70,23 +69,20 @@ type Query{
     issuesByAsigneeSeq(asignee_seq:Int!):[Issue]!
     issuesByReporterSeq(reporter_seq:Int!):[Issue]!
     issuesByProjectSeq(project_seq:Int!):[Issue]!
-    issueById(id:Int!):Issue!
-    projectsAll():[Project]!
+    issueById(id:String!):Issue!
+    projectsAll:[Project]!
     projectBySeq(seq:Int!):Project
     commentByIssueSeq(issueseq:Int!):[Comment]
 }
 type Mutation{
     createUser(user:UserInput!):Int
     updateUser(user:UserInput!):User
-    deleteUser(user:UserInput!):Int
+    deleteUser(seq:Int!):Int
     createProject(project:ProjectInput!):Int
     updateProject(project:ProjectInput!):Project
     deleteProject(project:ProjectInput!):Int
     createIssue(issue:IssueInput!):Int
     updateIssue(issue:IssueInput!):Issue
-    deleteIssue(issue:IssueInput!):Int
-    createComment(comment:CommentInput!):Int
-    updateComment(comment:CommentInput!):Comment
-    deleteComment(comment:CommentInput!):Int
+    deleteIssue(seq:Int!):Int
 }
 `);
