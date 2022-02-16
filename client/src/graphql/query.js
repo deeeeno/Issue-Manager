@@ -1,6 +1,7 @@
-const user_field = ['seq','id','password','nickName'];
-const issue_field = ['seq','id','reporter_seq','asignee_seq','status','priority','title','description'];
-const comment_field = ['index','issue_seq','commenter_seq','description'];
+const user_field = ['seq','id','password','nickName','create_datetime'];
+const project_field = ['seq','name','symbol','issue_count','create_datetime']
+const issue_field = ['seq','id','project_seq','reporter_seq','asignee_seq','status','priority','title','description','create_datetime'];
+const comment_field = ['index','issue_seq','commenter_seq','description','create_datetime'];
 
 export const userById = function(id,...rest){
     return `userById(id:"${id}"){
@@ -12,13 +13,33 @@ export const userBySeq = function(seq,...rest){
         ${(rest[0]==='*') ? user_field.join(' ') : rest.join(' ')}
     }`;
 }
+export const projectsAll = function(...rest){
+    return `projectsAll{
+        ${(rest[0]==='*') ? project_field.join(' ') : rest.join(' ')}
+    }`
+}
+export const projectBySeq = function(seq,...rest){
+    return `projectBySeq(seq:${seq}){
+        ${(rest[0]==='*') ? project_field.join(' ') : rest.join(' ')}
+    }`
+}
 export const issueById = function(id,...rest){
     return `issueById(id:"${id}"){
         ${(rest[0]==='*') ? issue_field.join(' ') : rest.join(' ')}
     }`;
 }
-export const issueByUserSeq = function(seq,...rest){
-    return `issueByUserSeq(userseq:${seq}){
+export const issuesByAsigneeSeq = function(asignee_seq,...rest){
+    return `issuesByAsigneeSeq(asignee_seq:${asignee_seq}){
+        ${(rest[0]==='*') ? issue_field.join(' ') : rest.join(' ')}
+    }`;
+}
+export const issuesByReporterSeq = function(reporter_seq,...rest){
+    return `issuesByReporterSeq(reporter_seq:${reporter_seq}){
+        ${(rest[0]==='*') ? issue_field.join(' ') : rest.join(' ')}
+    }`;
+}
+export const issuesByProjectSeq = function(project_seq,...rest){
+    return `issuesByProjectSeq(project_seq:${project_seq}){
         ${(rest[0]==='*') ? issue_field.join(' ') : rest.join(' ')}
     }`;
 }
