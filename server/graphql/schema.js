@@ -63,6 +63,11 @@ input CommentInput{
     description:String!
 }
 
+type Response{
+    status:String!
+    data:String!
+}
+
 type Query{
     userById(id:String!):User
     userBySeq(seq:Int!):User!
@@ -75,14 +80,14 @@ type Query{
     commentByIssueSeq(issueseq:Int!):[Comment]
 }
 type Mutation{
-    createUser(user:UserInput!):Int
-    updateUser(user:UserInput!):User
-    deleteUser(seq:Int!):Int
-    createProject(project:ProjectInput!):Int
+    createUser(user:UserInput!):Response!
+    updateUser(seq:Int!,user:UserInput!):Response!
+    deleteUser(seq:Int!):Response!
+    createProject(project:ProjectInput!):Response!
     updateProject(project:ProjectInput!):Project
     deleteProject(project:ProjectInput!):Int
-    createIssue(issue:IssueInput!):Int
-    updateIssue(issue:IssueInput!):Issue
-    deleteIssue(seq:Int!):Int
+    createIssue(issue:IssueInput!):Response!
+    updateIssue(issue:IssueInput!):Response!
+    deleteIssue(seq:Int!):Response!
 }
 `);
