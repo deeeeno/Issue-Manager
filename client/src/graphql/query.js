@@ -13,6 +13,12 @@ export const userBySeq = function(seq,...rest){
         ${(rest[0]==='*') ? user_field.join(' ') : rest.join(' ')}
     }`;
 }
+export const userByKeyword = function(keyword,...rest){
+    console.log(keyword);
+    return `userByKeyword(keyword:"${keyword}"){
+        ${(rest[0]==='*') ? user_field.join(' ') : rest.join(' ')}
+    }`;
+}
 export const projectsAll = function(...rest){
     return `projectsAll{
         ${(rest[0]==='*') ? project_field.join(' ') : rest.join(' ')}

@@ -15,6 +15,14 @@ export const userBySeq = (seq) => {
       });
    });
 };
+export const userByKeyword = (keyword) => {
+   const searchRegex = new RegExp(`${keyword}`);
+   return new Promise((resolve) => {
+      User.find({ $or: [{ id: searchRegex }, { nickName: searchRegex }] }).then((ret) => {
+         resolve(ret);
+      });
+   });
+};
 export const createUser = (user) => {
    const newUser = new User(user);
    return new Promise((resolve, reject) => {

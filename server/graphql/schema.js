@@ -71,6 +71,7 @@ type Response{
 type Query{
     userById(id:String!):User
     userBySeq(seq:Int!):User!
+    userByKeyword(keyword:String):[User]
     issuesByAsigneeSeq(asignee_seq:Int!):[Issue]!
     issuesByReporterSeq(reporter_seq:Int!):[Issue]!
     issuesByProjectSeq(project_seq:Int!):[Issue]!

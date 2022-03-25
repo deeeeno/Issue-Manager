@@ -6,6 +6,7 @@ export const requestQuery = function(...querys){
     const query = `{
         ${querys.join('\n')}
     }` 
+    console.log(query);
     return new Promise(async (resolve,reject)=>{
         const res = await fetch(URL,
             {

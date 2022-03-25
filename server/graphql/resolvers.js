@@ -1,4 +1,11 @@
-import { userById, userBySeq, createUser, updateUser, deleteUser } from "../data/users";
+import {
+   userById,
+   userBySeq,
+   userByKeyword,
+   createUser,
+   updateUser,
+   deleteUser,
+} from "../data/users";
 import {
    issueById,
    issuesByAsigneeSeq,
@@ -20,6 +27,7 @@ export const rootValue = {
    ////User 관련 query, mutation
    userById: async ({ id }) => (await userById(id))[0],
    userBySeq: async ({ seq }) => (await userBySeq(seq))[0],
+   userByKeyword: async ({ keyword }) => await userByKeyword(keyword),
    createUser: async ({ user }) => await createUser(user),
    updateUser: async ({ seq, user }) => await updateUser(seq, user),
    deleteUser: async ({ seq }) => await deleteUser(seq),

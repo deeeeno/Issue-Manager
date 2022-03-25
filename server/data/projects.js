@@ -12,7 +12,6 @@ export const projectsAll = () => {
 export const projectBySeq = (seq) => {
    return new Promise((resolve) => {
       Project.find({ seq }).then((ret) => {
-         console.log(ret);
          resolve(ret);
       });
    });

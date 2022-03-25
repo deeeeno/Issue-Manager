@@ -1,5 +1,5 @@
 import {useSearchParams} from 'react-router-dom';
-import {useState,useEffect} from 'react';
+import {useState,useEffect,useContext} from 'react';
 
 import {issuesByReporterSeq,userBySeq} from '../graphql/query';
 import {requestQuery} from '../graphql/request'
@@ -7,12 +7,13 @@ import {requestQuery} from '../graphql/request'
 import Header from '../components/Header';
 import Popup from '../components/Popup';
 import IssueDetail from '../components/IssueDetail';
-
+import LoginContext from '../data/context';
 function List(){
     const [params,setParams] = useSearchParams();
     const [issues,setIssues] = useState([]);
     const [user,setUser] = useState({});
-
+    const {loginUser} = useContext(LoginContext);
+    console.log(loginUser);
     useEffect(()=>{
         const userseq = params.get('userseq');
         requestQuery(issuesByReporterSeq(userseq,'*'),userBySeq(userseq,'*'))
